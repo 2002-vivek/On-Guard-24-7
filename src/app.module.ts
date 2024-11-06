@@ -4,25 +4,24 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { SubscribeModule } from './subscribe/subscribe.module';
 import { RequestguardsModule } from './requestguards/requestGuards.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Mongoose } from 'mongoose';
-import { ContactModule } from 'contact-us/contactus.module';
-import { AdminModule } from 'admin/admin.module';
+import { ContactModule } from './contact-us/contactus.module';
+import { AdminModule } from './admin/admin.module';
+
 
 
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-    rootPath: join(__dirname, '..', 'public'), // Path to your public folder
+    rootPath: join(__dirname, '..', 'public'), 
   }),
   MongooseModule.forRoot('mongodb://localhost'),
   ContactModule,
   SubscribeModule,
   RequestguardsModule,
-  AdminModule,
+  AdminModule
 ],
   controllers: [],
   providers: [],
 })
 export class AppModule {}
-
