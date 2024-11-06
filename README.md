@@ -1,99 +1,104 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# ON GUARD 24/7 – Website
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+-----
+**Overview**
 
-## Description
+We have created a website for **ON GUARD 24/7**, which provides professional security services for Residential Security, Site Security, and Event Security. The website showcases these services, highlights past projects through a portfolio, and allows clients to get in touch through a contact form. There is also a login system for users to access personalized content and manage their services.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+**Features**
 
-## Project setup
+**1. Home Page (Home.html)**
 
-```bash
-$ npm install
-```
+- **Main Features**: An overview of ON GUARD 24/7’s services, including Residential, Site, and Event Security. The page includes sections like "Who We Are" and "Why Choose Us" to introduce the company's mission and highlight advantages.
+- **Navigation**: Includes a responsive navigation bar with links to **Services**, **Portfolio**, and **Contact** pages, plus a **Login** option. The mobile version uses a JavaScript-driven hamburger menu for accessibility.
 
-## Compile and run the project
+**2. Services Page (services.html)**
 
-```bash
-# development
-$ npm run start
+- **Residential Security**: Offers access control, regular patrols, and alarm response for residential properties.
+- **Event Security**: Focuses on crowd control, attendee screening, and incident management for events.
+- **Site Security**: Provides patrols and asset security for large sites.
+- The page uses images to enhance each service description, helping clients understand ON GUARD 24/7’s offerings.
 
-# watch mode
-$ npm run start:dev
+**3. Portfolio Page (portfolio.html)**
 
-# production mode
-$ npm run start:prod
-```
+- Displays a gallery of past projects organized by categories like Condominiums and Embassies, with images showcasing the company’s experience in security management. Some projects are restricted for confidentiality.
 
-## Run tests
+**4. Contact Page (contact-us.html)**
 
-```bash
-# unit tests
-$ npm run test
+- Contains a form for users to inquire about services, with fields for name, email, phone, and message.
+- Additional contact options include phone, email, and social media links.
+- Sections for subscribing to a newsletter and following the company on social media.
 
-# e2e tests
-$ npm run test:e2e
+**5. Login Page (login.html)**
 
-# test coverage
-$ npm run test:cov
-```
+- Allows users to log in or sign up with fields for email, username, and password. JavaScript controls the toggle between login and signup forms.
+-----
+**Backend Routes and API Endpoints**
 
-## Deployment
+**User Routes**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+The user-related routes provide functionality for managing guard requests and subscription details.
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+- **POST /api/subscribe**: Subscribes a user to updates via email. Returns a conflict error if the email is already subscribed.
+- **Request Guards Page (requestGuards.html)**:
+  - **POST /api/request-guards**: Allows users to create guard requests by specifying service type, number of guards, and cost.
+  - **GET /api/request-guards**: Users can review all their submitted requests.
+  - **PATCH /api/request-guards/**
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+: Users can edit specific details of their requests by ID.
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+- **DELETE /api/request-guards/**
 
-## Resources
+: Allows users to delete a specific request by ID.
 
-Check out a few resources that may come in handy when working with NestJS:
+**Data Transfer for Request Guards**:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+- The frontend submits a JSON object with services (array of service details) and total\_cost to the POST route. The backend validates and saves this data to MongoDB, handling duplicate checks and responding with appropriate messages.
 
-## Support
+**Contact Us Page (contact-us.html)**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+The **Contact Us** page provides a form for users to send inquiries to the platform. Here’s how the API for this page works:
 
-## Stay in touch
+- **POST /api/contact**: Submits a user inquiry, which includes:
+  - **name**: User’s name.
+  - **email**: User’s email address.
+  - **phone**: User’s phone number.
+  - **company**: (Optional) Company name.
+  - **message**: The user’s message or inquiry.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+**Data Transfer for Contact Us**:
 
-## License
+- The frontend form captures data in the above fields and sends it as a JSON object to the backend.
+- The backend validates the fields using DTOs and stores the inquiry in MongoDB.
+- If any required field is missing, a validation error is returned to the frontend.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+**Admin Routes**
+
+Admin-related routes enable CRUD operations to manage user data, including names, passwords, and emails.
+
+- **POST /admin/users**: Creates a new user with name, email, and password.
+- **GET /admin/users**: Retrieves all user data for review.
+- **GET /admin/users/**: Retrieves a specific user’s details by ID.
+
+- **PATCH /admin/users/**: Allows admins to update a user’s details (name, email, or password) by ID.
+
+- **DELETE /admin/users/**: Deletes a specific user by ID.
+
+**Data Transfer for Admin Routes**:
+
+- All admin endpoints utilize DTOs (Data Transfer Objects) to validate incoming data.
+- GET, PATCH, and DELETE routes require a user’s ID as a URL parameter, while POST and PATCH requests require a JSON body with user details.
+-----
+**Key Technologies**
+
+- **HTML**: Structure for all website pages.
+- **CSS**: Styling for a responsive and visually appealing design.
+- **JavaScript**: Adds interactivity, such as toggling between login/signup forms and handling mobile navigation.
+- **NestJS**: Backend framework for organizing routes, services, and controllers.
+- **MongoDB**: Database for storing user data, guard requests, and subscription details.
+-----
+**Navigation and Responsiveness**
+
+- **Responsive Navigation**: The navigation bar adapts to different screen sizes, with a hamburger menu for mobile devices that opens and closes with JavaScript.
+- **Full Responsiveness**: All pages are fully responsive, ensuring a smooth user experience across phones, tablets, and desktops.
