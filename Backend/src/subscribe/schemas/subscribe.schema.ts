@@ -5,7 +5,7 @@ export type SubscribeDocument = Subscribe & Document;
 
 @Schema()
 export class Subscribe{
-    @Prop({required: true})
+    @Prop({required: true, unique: true})
     email: string;
 }
 

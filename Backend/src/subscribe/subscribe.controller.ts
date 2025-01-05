@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, ConflictException, Controller, Post } from "@nestjs/common";
 import { SubscribeService } from "./subscribe.service";
 import { SubscribeDto } from "./subscribe.Dto";
 
@@ -8,9 +8,19 @@ export class SubscribeController{
 
     @Post()
     async subscribe(@Body() subscriptionDto: SubscribeDto){
-
-        const savedSubscription = this.subscribeService.subscribe(subscriptionDto);
-        return {success: true, message:'Subscription saved Successfully', data: savedSubscription};
+        try{
+            const savedSubscription = await this.subscribeService.subscribe(subscriptionDto);
+            return {success: true, message:'Subscription saved Successfully', data: savedSubscription};
+        } catch(error) {
+            if(error instanceof ConflictException) {
+                return{
+                    success:false,
+                    message: error.message,
+                };
+            }
+            throw error
+        }
+        
     }
     
 }

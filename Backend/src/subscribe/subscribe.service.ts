@@ -13,18 +13,12 @@ export class SubscribeService{
     constructor(@InjectModel(Subscribe.name) private subscribeModel: Model<SubscribeDocument>){}
 
     async subscribe(subscribeDto: SubscribeDto): Promise<Subscribe>{
-
-        try{
-            const newSubscriber = new this.subscribeModel(subscribeDto);
-            return await newSubscriber.save();
+        const existingSubscriber = await this.subscribeModel.findOne({email:subscribeDto.email});
+        if (existingSubscriber) {
+            throw new ConflictException('Email Already Subscribed');
         }
-        catch(error){
-            console.log(error);
-            if( error instanceof MongoServerError && error.code == 11000) {
-                throw new ConflictException('Email Already subscribed');
-            }
-            throw new HttpException('Database Error', 500);
-        }
+        const newSubscriber = new this.subscribeModel(subscribeDto);
+        return await newSubscriber.save();
         
     }
 }

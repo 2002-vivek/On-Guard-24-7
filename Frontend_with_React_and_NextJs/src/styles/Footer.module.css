@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+
+
+
+/* Footer Section */
+.footer_section {
+    font-family: "Titillium Web", sans-serif;
+    background-color: rgba(38, 39, 43, 0.9);
+    color: white;
+    padding: 2.5rem 1.25rem; 
+  }
+  .footer_container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 75rem;
+    margin: 0 auto;
+    gap: 3.125rem; 
+  }
+  .footer_column {
+    flex: 1;
+  }
+  .footer_column h3 {
+    font-size: 1.375rem; 
+    margin-bottom: 1.25rem; 
+    color: #ffdd57;
+  }
+  .footer_column ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer_column ul li {
+    margin-bottom: 0.625rem; 
+  }
+  .footer_column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.27rem; 
+    transition: color 0.3s;
+  }
+  .footer_column ul li a:hover {
+    color: #ffdd57;
+    font-size: 1.3rem;
+  }
+  .footer_bottom {
+    text-align: center;
+    margin-top: 1.25rem; 
+    font-size: 0.875rem; 
+    color: #e0dcdc;
+    padding-top: 1rem;
+  }
+  .footer_bottom p {
+    margin: 0;
+    font-size: 1.3rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer_container {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.875rem; 
+    }
+  }
+  
