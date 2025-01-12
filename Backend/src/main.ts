@@ -8,6 +8,6 @@ async function bootstrap() {
   const cors = require('cors');
   // app.use(cors({ origin: 'http://localhost:3001' }));
   app.use(cors());
-  await app.listen(process.env.PORT || 3000);
+  await app.listen(10000);
 }
 bootstrap();
