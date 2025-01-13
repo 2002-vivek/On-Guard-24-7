@@ -4,7 +4,7 @@ import { requestingGuards, requestingGuardsDocument } from './schemas/requestGua
 import { Model } from 'mongoose';
 import { RequestGuardsDto } from './Dto/requestGuards.dto';
 import { NotFoundError } from 'rxjs';
-import { updateRequestGuardsDto } from './Dto/updaterequestGuards.Dto';
+import { updateRequestGuardsDto } from './Dto/updateRequestGuards.Dto';
 
 @Injectable()
 export class requestGuardsService {

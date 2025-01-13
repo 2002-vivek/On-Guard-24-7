@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, HttpException, Param, Request, Patch, Post, UseGuards } from '@nestjs/common';
 import { requestGuardsService } from './requestGuards.service';
 import { RequestGuardsDto } from './Dto/requestGuards.dto';
-import { updateRequestGuardsDto } from './Dto/updaterequestGuards.Dto';
+import { updateRequestGuardsDto } from './Dto/updateRequestGuards.Dto';
 import mongoose from 'mongoose';
 import { ExceptionsHandler } from '@nestjs/core/exceptions/exceptions-handler';
 import { AuthGuard } from '@nestjs/passport';
