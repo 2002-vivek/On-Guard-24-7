@@ -56,7 +56,7 @@ export default function Home(){
                 <p>
                   Comprehensive residential security solutions designed to safeguard your condo with 24/7 protection and rapid response.
                 </p>
-                <Link href="/services.html" className={styles.linkattribute}>Learn more</Link>
+                <Link href="/services" className={styles.linkattribute}>Learn more</Link>
             </div>
 
             {/* Flex Item-2 */}
@@ -66,7 +66,7 @@ export default function Home(){
                 <p>
                   Tailored site security solutions offering real-time protection and proactive measures to secure your site around the clock.
                 </p>
-                <Link href="/services.html" className={styles.linkattribute}>Learn more</Link>
+                <Link href="/services" className={styles.linkattribute}>Learn more</Link>
             </div>
 
             {/* Flex Item-3 */}
@@ -76,7 +76,7 @@ export default function Home(){
                 <p>
                   Expert event security services providing seamless crowd management, threat prevention, and 24/7 on-site protection for a safe experience.
                 </p>
-                <Link href="/services.html" className={styles.linkattribute}>Learn more</Link>
+                <Link href="/services" className={styles.linkattribute}>Learn more</Link>
             </div>
 
           </div>
