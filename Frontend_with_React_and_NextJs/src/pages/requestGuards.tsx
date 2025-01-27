@@ -13,6 +13,23 @@ import router from "next/router";
 
 
 
+interface Service {
+  service: string;
+  count_of_guards: number;
+  cost: number;
+  _id: string;
+}
+
+// Type for the editData object
+interface EditData {
+  _id: string;
+  services: Service[];
+  total_cost: number;
+  userId: string;
+}
+
+
+
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 const apiUrl = `${BASE_URL}/requestGuards`;
 
@@ -54,7 +71,7 @@ export async function getServerSideProps(context: any) {
 const RequestGuards = ({ requests: initialRequests, token, userId }: { requests: any[]; token: string; userId: string  }) => {
 
   const [requests, setRequests] = useState(initialRequests);
-  const [editData, setEditData] = useState(null);
+  const [editData, setEditData] = useState<EditData | null>(null);
   
   const handleEdit = async (id: string, data: any) => {
     const url = `${apiUrl}/${id}`;

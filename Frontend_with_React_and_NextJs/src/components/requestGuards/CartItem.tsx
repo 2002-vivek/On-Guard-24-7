@@ -1,7 +1,16 @@
 import styles from "../../styles/requestGuards.module.css";
 import React from 'react'
 
-const CartItem = ({title, price, count, setCount, ImageSrc}) => {
+interface CartItemProps{
+    title:string;
+    price:number;
+    count:number;
+    setCount:(value: number) => void;
+    ImageSrc:string;
+}
+
+
+const CartItem:React.FC<CartItemProps> = ({title, price, count, setCount, ImageSrc}) => {
 
     const increment =()=> setCount(count+1);
     const decrement = () => setCount(count>0 ? count-1 : 0);

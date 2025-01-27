@@ -21,7 +21,6 @@ const login: React.FC = () => {
         const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
         
         const handleLogin = async (formData: { email: string; password: string }) => {
-            console.log(formData);
             try {
                 const response = await fetch(`${BASE_URL}/auth/login`, {
                 method: "POST",
@@ -47,7 +46,6 @@ const login: React.FC = () => {
         };
 
         const handleSignup = async (formData: { name: string; email: string; password: string }) => {
-            console.log(formData);
             try {
               const response = await fetch(`${BASE_URL}/admin/signup`, {
                 method: "POST",
